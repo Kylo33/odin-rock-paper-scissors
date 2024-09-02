@@ -14,3 +14,16 @@ function getComputerChoice() {
         return "scissors";
     }
 }
+
+function getHumanChoice() {
+    // DO:
+    //      Ask the user to input 'rock', 'paper', or 'scissors'
+    // While their input is not 'rock', 'paper', or 'scissors'
+
+    let input;
+    do {
+        input = prompt("Enter 'rock', 'paper', or 'scissors'").toLowerCase();
+    } while (!(input === 'rock' || input === 'paper' || input === 'scissors'))
+
+    return input;
+}
