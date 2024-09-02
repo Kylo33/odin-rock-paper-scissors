@@ -68,3 +68,12 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
 }
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playRound();
+        console.log(`Human: ${humanScore}, Computer: ${computerScore}`)
+    }
+}
+
+playGame()
