@@ -41,10 +41,12 @@ function playGame() {
     const computerScorePara = document.querySelector("#computerScore");
     const humanScorePara = document.querySelector("#humanScore");
 
+    const feedbackPara = document.querySelector("#feedback");
+
     function playRound(humanChoice, computerChoice) {
         // If humanChoice is equal to computer choice, print a tie message and return
         if (humanChoice === computerChoice) {
-            console.log("It's a tie!");
+            feedbackPara.textContent = "It's a tie!";
             return;
         }
         // Declare a humanWon variable
@@ -65,10 +67,10 @@ function playGame() {
             // increment computer score by 1
     
         if (humanWon) {
-            console.log(`Victory! ${capitalizeFirstLetter(humanChoice)} beats ${capitalizeFirstLetter(computerChoice)}.`)
+            feedbackPara.textContent = `Victory! ${capitalizeFirstLetter(humanChoice)} beats ${capitalizeFirstLetter(computerChoice)}.`;
             humanScore++;
         } else {
-            console.log(`You lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(humanChoice)}.`)
+            feedbackPara.textContent = `You lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(humanChoice)}.`;
             computerScore++;
         }
     }
