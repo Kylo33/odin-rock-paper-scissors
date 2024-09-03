@@ -70,10 +70,11 @@ function playGame() {
         }
     }
 
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-        console.log(`Human: ${humanScore}, Computer: ${computerScore}`)
-    }
+    document.querySelector("#rock").addEventListener("click",
+        e => playRound("rock", getComputerChoice()));
+    document.querySelector("#paper").addEventListener("click",
+        e => playRound("paper", getComputerChoice()));
+    document.querySelector("#scissors").addEventListener("click",
+        e => playRound("scissors", getComputerChoice()));
 }
-
 playGame()
