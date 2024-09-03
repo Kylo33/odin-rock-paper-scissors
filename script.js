@@ -70,11 +70,10 @@ function playGame() {
         }
     }
 
-    document.querySelector("#rock").addEventListener("click",
-        e => playRound("rock", getComputerChoice()));
-    document.querySelector("#paper").addEventListener("click",
-        e => playRound("paper", getComputerChoice()));
-    document.querySelector("#scissors").addEventListener("click",
-        e => playRound("scissors", getComputerChoice()));
+    document.addEventListener("click", e => {
+        if (["rock", "paper", "scissors"].includes(e.target.id)) {
+            playRound(e.target.id, getComputerChoice());
+        }
+    })
 }
 playGame()
