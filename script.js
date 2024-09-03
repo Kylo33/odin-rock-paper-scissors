@@ -75,11 +75,26 @@ function playGame() {
         }
     }
 
+    function updateScore() {
+        humanScorePara.textContent = `Human: ${humanScore}`;
+        computerScorePara.textContent = `Computer: ${computerScore}`;
+    }
+
+    let roundNumber = 1;
+
     document.addEventListener("click", e => {
         if (["rock", "paper", "scissors"].includes(e.target.id)) {
             playRound(e.target.id, getComputerChoice());
-            humanScorePara.textContent = `Human: ${humanScore}`;
-            computerScorePara.textContent = `Computer: ${computerScore}`;
+            updateScore();
+            if (roundNumber++ === 5) {
+                alert(`Game over! You ${humanScore > computerScore ? "beat" 
+                    : humanScore < computerScore ? "lost to"
+                    : "tied with"} the computer!`);
+                    humanScore = 0;
+                    computerScore = 0;
+                    updateScore();
+                    roundNumber = 1;
+            }
         }
     })
 }
