@@ -38,6 +38,9 @@ function playGame() {
     let computerScore = 0;
     let humanScore = 0;
 
+    const computerScorePara = document.querySelector("#computerScore");
+    const humanScorePara = document.querySelector("#humanScore");
+
     function playRound(humanChoice, computerChoice) {
         // If humanChoice is equal to computer choice, print a tie message and return
         if (humanChoice === computerChoice) {
@@ -73,6 +76,8 @@ function playGame() {
     document.addEventListener("click", e => {
         if (["rock", "paper", "scissors"].includes(e.target.id)) {
             playRound(e.target.id, getComputerChoice());
+            humanScorePara.textContent = `Human: ${humanScore}`;
+            computerScorePara.textContent = `Computer: ${computerScore}`;
         }
     })
 }
